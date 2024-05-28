@@ -20,11 +20,12 @@
                             <h5 class="card-title">{{$article->titre}}</h5>
                             <p class="card-text">{{$article->description}}</p>
                             <p class="card-text">Popularité: {{$article->popularite}}</p>
-                            <a  class="btn btn-warning">Modifier</a>
-                            <form method="POST" style="display:inline;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger" >Supprimer</button>
+                            <a href="/edit-article/{{$article->id}}" class="btn btn-warning">Modifier</a>
+                            <form action="{{ url('article/'. $article->id) }}" method="POST" style="display: inline">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                </form>
                         </div>
                     </div>
                 </div>
